@@ -9,6 +9,12 @@ import ButtonUI from '../Modules/ButtonUI'
 import {SelectMenu} from '../Modules/SelectUI'
 import {Hamburger} from "./Hamburger"
 
+// web3
+
+import { useWeb3Modal, Web3Button, Web3Modal } from '@web3modal/react'
+import { useAccount } from 'wagmi'
+import { ethereumClient } from '../../pages/_app'
+
 
 export const NavLinks = [
     {
@@ -45,16 +51,20 @@ export const Languages = [
 
 const NavBar = () => {
 
-    const [open, setOpen] = useState(false);
+  const { isConnected } = useAccount()
+  const { open } = useWeb3Modal()
 
-    const handleMenuNav = () => setOpen(!open);
+
+    const [openNav, setOpen] = useState(false);
+
+    const handleMenuNav = () => setOpen(!openNav);
     
     return (
-        <section className={open ? "bg-transparent fixed w-full z-[200] py-6" : "bg-white fixed w-full z-[200] py-6"}>
+        <section className={openNav ? "bg-transparent fixed w-full z-[200] py-6" : "bg-white fixed w-full z-[200] py-6"}>
         <nav className="w-full flex flex-row justify-between items-center px-6 md:px-12">
 
             <div className="brand___logo z-50">
-                 <Image src={open ? WhiteLogo : Logo} alt="Exx Network Logo" />
+                 <Image src={openNav ? WhiteLogo : Logo} alt="Exx Network Logo" />
                 </div>
 
 
@@ -86,11 +96,14 @@ const NavBar = () => {
                     </div>
                   
 
-        
+                 
+
                   
-              <ButtonUI variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4"> 
+                    {!isConnected && <ButtonUI  onClick={() => open()} variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4"> 
                    Connect Wallet ↗
-                 </ButtonUI>
+                 </ButtonUI>}
+
+                 
                   
 
                         </div>
@@ -100,9 +113,9 @@ const NavBar = () => {
 
                     {/* mobile hamburger */}
 
-                    <Hamburger openMenu={open} onClick={handleMenuNav} />
+                    <Hamburger openMenu={openNav} onClick={handleMenuNav} />
 
-                     <div className={open ? `bg-exxBlue fixed z-[20] left-0 top-0 h-[100vh] w-[100vw]`: "hidden"}>
+                     <div className={openNav ? `bg-exxBlue fixed z-[20] left-0 top-0 h-[100vh] w-[100vw]`: "hidden"}>
                         <div className="mt-[150px]">
                      <ul className="nav_list flex flex-col justify-center items-center gap-5">
                    {NavLinks.map((n: any) => {
@@ -129,9 +142,9 @@ const NavBar = () => {
         
                 
                           
-                      <ButtonUI variant="outlined" ClassName="text-[14px] font-[700] bg-white text-exxBlue rounded-[10px] py-4 mx-[100px]"> 
+                            {!isConnected &&  <ButtonUI  onClick={() => open()} variant="outlined" ClassName="text-[14px] font-[700] bg-white text-exxBlue rounded-[10px] py-4 mx-[100px]"> 
                            Connect Wallet ↗
-                         </ButtonUI>
+                         </ButtonUI>}
                           
         
                                 </div>
@@ -145,6 +158,77 @@ const NavBar = () => {
 
 
        </nav>
+
+       <Web3Modal
+        ethereumClient={ethereumClient}
+        // Custom Linking Mobile Wallets
+        mobileWallets={[
+          {
+            id: 'trust',
+            name: 'Trust Wallet',
+            links: { native: 'trust://', universal: 'https://link.trustwallet.com' }
+          },
+          {
+            id: 'rainbow',
+            name: 'Rainbow',
+            links: { native: 'rainbow://', universal: 'https://rainbow.me' }
+          },
+          {
+            id: 'zerion',
+            name: 'Zerion',
+            links: { native: 'zerion://', universal: 'https://wallet.zerion.io' }
+          },
+          {
+            id: 'tokenary',
+            name: 'Tokenary',
+            links: { native: 'tokenary://', universal: 'https://tokenary.io' }
+          }
+        ]}
+        // Custom Linking Desktop Wallets
+        desktopWallets={[
+          {
+            id: 'ledger',
+            name: 'Ledger',
+            links: { native: 'ledgerlive://', universal: 'https://www.ledger.com' }
+          },
+          {
+            id: 'zerion',
+            name: 'Zerion',
+            links: { native: 'zerion://', universal: 'https://wallet.zerion.io' }
+          },
+          {
+            id: 'tokenary',
+            name: 'Tokenary',
+            links: { native: 'tokenary://', universal: 'https://tokenary.io' }
+          },
+          {
+            id: 'oreid',
+            name: 'OREID',
+            links: {
+              native: '',
+              universal: 'https://www.oreid.io/'
+            }
+          }
+        ]}
+        // Custom Wallet Images
+        walletImages={{
+          metaMask: '/images/wallet_metamask.webp',
+          brave: '/images/wallet_brave.webp',
+          ledger: '/images/wallet_ledger.webp',
+          coinbaseWallet: '/images/wallet_coinbase.webp',
+          zerion: '/images/wallet_zerion.webp',
+          trust: '/images/wallet_trust.webp',
+          rainbow: '/images/wallet_rainbow.webp',
+          oreid: '/images/wallet_oreid.svg'
+        }}
+        // Custom Chain Images
+        chainImages={{
+          137: '/images/chain_polygon.webp',
+          10: '/images/chain_optimism.webp',
+          42161: '/images/chain_arbitrum.webp'
+        }}
+      />
+    
 
        </section>
     )
