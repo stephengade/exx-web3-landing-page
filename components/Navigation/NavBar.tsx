@@ -11,7 +11,7 @@ import {Hamburger} from "./Hamburger"
 
 // web3
 
-import { useWeb3Modal, Web3Button, Web3Modal } from '@web3modal/react'
+import { useWeb3Modal, Web3Modal } from '@web3modal/react'
 import { useAccount } from 'wagmi'
 import { ethereumClient } from '../../pages/_app'
 
