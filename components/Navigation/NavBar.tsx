@@ -4,6 +4,7 @@ import Link from "next/link"
 import Logo from "../../public/assets/ExxLogo.svg"
 import WhiteLogo from "../../public/assets/whiteLogo.svg"
 import Globe from "../../public/assets/lang.svg"
+import WhiteGlobe from "../../public/assets/lang-white.svg"
 import ButtonUI from '../Modules/ButtonUI'
 import {SelectMenu} from '../Modules/SelectUI'
 import {Hamburger} from "./Hamburger"
@@ -79,9 +80,9 @@ const NavBar = () => {
                             
                    
 
-                    <div className="flex flex-row items-center gap-2">
+                    <div className="flex flex-row items-center gap-2 mr-5">
                       <Image src={Globe} alt="choose a language" /> 
-                      <SelectMenu Data={Languages}  defaultValue={"EN"} name="selected_language"/>
+                      <SelectMenu Data={Languages}  defaultValue={"EN"} inputColor="black" inputWidth="60px" name="selected_language"/>
                     </div>
                   
 
@@ -120,9 +121,9 @@ const NavBar = () => {
                             
                    
 
-                            <div className="flex flex-row items-center gap-2 mx-[50px]">
-                              <Image src={Globe} alt="choose a language" /> 
-                              <SelectMenu Data={Languages}  defaultValue={"EN"} name="selected_language"/>
+                            <div className="flex flex-row justify-center items-center gap-2 mx-[50px]">
+                              <Image src={WhiteGlobe} alt="choose a language" /> 
+                              <SelectMenu Data={Languages}  defaultValue={"EN"} inputColor="white" name="selected_language" />
                             </div>
                           
         

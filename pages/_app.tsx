@@ -8,10 +8,10 @@ import InjectTailwind from '../components/Modules/InjectTailwind';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-
+  const AppComponent = Component as any;
   return (
     <InjectTailwind>
-    <Component {...pageProps} />
+    <AppComponent {...pageProps} />
     </InjectTailwind>
   )
 }
