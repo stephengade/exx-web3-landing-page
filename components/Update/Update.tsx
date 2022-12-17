@@ -16,11 +16,11 @@ interface Itext {
 const UpdateItem =({label, date, title, Photo}: Itext) => {
     return (
 
-        <div className="bg-exxGrey rounded-[20px] max-w-[400px] pt-5">
+        <div className="bg-exxGrey rounded-[20px] max-w-[400px] pt-5 cursor-pointer">
 
 
    <p className="text-[12px] font-sans flex flex-row justify-between px-5">
-             <span className="text-exxBlack ">{label}</span>
+             <span className="text-exxBlack font-bold ">{label}</span>
             <span className="text-[#141830] opacity-[0.6]"> {date}</span> 
             </p>
 

@@ -20,8 +20,8 @@ Stay Updated
 
             <div className="CTA__button w-full md:w-1/2 ">
                            
-             <form className="flex flex-col md:flex-row gap-5 md:gap-10 md:items-center">
-                <input name="subscriber" type="email" placeholder="Your email address" className="text-white outline-none bg-black opacity-[0.6] px-10 py-4 rounded-[10px] border-solid border-[1px] border-[rgba(255,255,255,0.48)]  md:w-[300px]"/>
+             <form className="flex flex-col md:flex-row gap-5 md:gap-7 md:items-center">
+                <input name="subscriber" type="email" placeholder="Your email address" className="text-white outline-none bg-black opacity-[0.6] px-10 py-4 rounded-[10px] border-solid border-[1px] border-[rgba(255,255,255,0.48)]  md:w-[280px]"/>
                 <ButtonUI variant="contained" ClassName="bg-exxBlue text-[14px] font-[700] text-white rounded-[10px] py-4"> 
                      Subscribe Now ↗
                  </ButtonUI>

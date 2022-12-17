@@ -16,7 +16,9 @@ class MainDocument extends Document {
         
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans&DM+Mono&family=Space+Grotesk&display=swap" rel="stylesheet" />
-         
+         <link rel="icon" type="image/image" href="https://miro.medium.com/max/180/1*eG4RBqZbqr9phhwOXa43HQ.jpeg" />
+         <meta name="msapplication-TileColor" content="#174AFF" />
+        <meta name="theme-color" content="#174AFF" /> 
 
      
 {/* 
@@ -25,8 +27,8 @@ class MainDocument extends Document {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#1c85eb" />
-        <meta name="theme-color" content="#1c85eb" /> */}
+      
+        */}
       </Head>
       <body>
         <Main />

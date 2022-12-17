@@ -14,7 +14,7 @@ const DiscordIcon = <FaDiscord width="24.95px" height="24.95px" />
 const Community = () => {
     return (
         
-<section className="bg-exxDark flex flex-col md:flex-row md:justify-between items-center gap-12  md:pl-[32px]  pt-[29px] md:pt-0 rounded-[20px] my-[70px] mx-[10%] md:mx-[12%]">
+<section className="bg-exxDark flex flex-col md:flex-row md:justify-between items-center  md:pl-[32px]  pt-[29px] md:pt-0 rounded-[20px] my-[70px] mx-[10%]">
   <div className="w-full md:w-1/2 px-[32px]  md:px-0">
   <h2 className="text-white font-gros font-[700] leading-[120%] text-[32px] md:text-[44px]">
   Join our developer community
