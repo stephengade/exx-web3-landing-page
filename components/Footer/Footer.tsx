@@ -93,10 +93,11 @@ const Footer = () => {
              {/* // last footer section */}
 
              <div className="flex flex-col md:flex-row justify-center items-center md:items-start text-center md:text-start md:justify-between mt-5 mb-10">
-             <div className="credit__links flex flex-row items-center justify-between md:justify-start md:gap-10">
-             <p className="text-[14px] md:text-[18px] text-[#596780] mt-2 font-[400] font-sans"> Privacy Policy </p> 
-             <p className="text-[14px] md:text-[18px] text-[#596780] mt-2 font-[400] font-sans">Terms & Condition</p> 
-             <p className="text-[14px] md:text-[18px] text-[#596780] mt-2 font-[400] font-sans"> Disclaimer </p>
+            
+             <div className="credit__links flex flex-row md:items-center justify-between gap-4 md:justify-start md:gap-10">
+             <p className="text-[12px] md:text-[18px] text-[#596780] mt-2 font-[400] font-sans"> Privacy Policy </p> 
+             <p className="text-[12px] md:text-[18px] text-[#596780] mt-2 font-[400] font-sans">Terms & Condition</p> 
+             <p className="text-[12px] md:text-[18px] text-[#596780] mt-2 font-[400] font-sans"> Disclaimer </p>
 
               </div>
 

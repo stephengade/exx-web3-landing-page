@@ -20,16 +20,18 @@ import { configureChains, createClient, WagmiConfig } from "wagmi";
 
 import { arbitrum, mainnet, polygon, optimism, avalanche, bsc, sepolia, localhost} from "wagmi/chains";
 
+export const ProjectId = process.env.PROJECTID;
+
 
 const chains = [arbitrum, mainnet, polygon, optimism, avalanche, bsc, sepolia, localhost];
 
 // Wagmi client
 const { provider } = configureChains(chains, [
-walletConnectProvider({ projectId: "<YOUR_PROJECT_ID>" }),
+walletConnectProvider({ projectId: ProjectId }),
 ]);
 const wagmiClient = createClient({
 autoConnect: true,
-connectors: modalConnectors({ appName: "web3Modal", chains }),
+connectors: modalConnectors({ appName: "Exx Network Test", chains }),
 provider,
 });
 
@@ -51,7 +53,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 
 <Web3Modal
-projectId="<YOUR_PROJECT_ID>"
+projectId={ProjectId}
 ethereumClient={ethereumClient}
 />
 </>

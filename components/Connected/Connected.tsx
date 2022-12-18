@@ -1,5 +1,9 @@
 import React from 'react'
 import ButtonUI from '../Modules/ButtonUI'
+import { Web3Networks } from '../../web3Module/Web3Module'
+import { useWeb3Modal } from '@web3modal/react'
+import { useAccount } from 'wagmi'
+
 
 
 interface Itext {
@@ -16,6 +20,10 @@ const TextItem =({label, value}: Itext) => {
 }
 
 const Connected = () => {
+
+    const { isConnected } = useAccount()
+  const { open } = useWeb3Modal()
+
     return (
         
 <section className="bg-white md:bg-[#f6f6f6] flex flex-col md:flex-row md:justify-center gap-12 py-[29px] px-[27px] rounded-[20px] my-[70px] md:mx-[15%]">
@@ -36,9 +44,9 @@ const Connected = () => {
 
 
         <div className="connect__buttons md:mt-6 w-full flex flex-col md:flex-row gap-3 md:gap-7">
-                 <ButtonUI variant="contained" ClassName="bg-exxBlue  text-[14px] font-[500] text-white rounded-[10px] py-2 "> 
+                  {!isConnected ? <ButtonUI onClick={() => open()} variant="contained" ClassName="bg-exxBlue  text-[14px] font-[500] text-white rounded-[10px] py-2 "> 
                      Add to Metatask ↗
-                 </ButtonUI>
+                 </ButtonUI> : "Connecting..."}
 
                  <ButtonUI variant="outlined" ClassName=" text-exxBlue text-[14px] font-[500] rounded-[10px] py-2"> 
                    Learn More ↗
@@ -59,7 +67,9 @@ const Connected = () => {
         </div>
 
  
-    
+        <Web3Networks />
+
+       
 
 </section>
 

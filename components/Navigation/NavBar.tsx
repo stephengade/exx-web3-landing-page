@@ -11,9 +11,10 @@ import {Hamburger} from "./Hamburger"
 
 // web3
 
-import { useWeb3Modal, Web3Modal } from '@web3modal/react'
+import { useWeb3Modal } from '@web3modal/react'
 import { useAccount } from 'wagmi'
-import { ethereumClient } from '../../pages/_app'
+import { Web3Networks } from '../../web3Module/Web3Module'
+
 
 
 export const NavLinks = [
@@ -99,9 +100,9 @@ const NavBar = () => {
                  
 
                   
-                    {!isConnected && <ButtonUI  onClick={() => open()} variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4"> 
+                    {!isConnected ? <ButtonUI  onClick={() => open()} variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4"> 
                    Connect Wallet ↗
-                 </ButtonUI>}
+                 </ButtonUI> : "Connecting..."}
 
                  
                   
@@ -156,80 +157,13 @@ const NavBar = () => {
                     </div>
 
 
-
+            
        </nav>
 
-       <Web3Modal
-        ethereumClient={ethereumClient}
-        // Custom Linking Mobile Wallets
-        mobileWallets={[
-          {
-            id: 'trust',
-            name: 'Trust Wallet',
-            links: { native: 'trust://', universal: 'https://link.trustwallet.com' }
-          },
-          {
-            id: 'rainbow',
-            name: 'Rainbow',
-            links: { native: 'rainbow://', universal: 'https://rainbow.me' }
-          },
-          {
-            id: 'zerion',
-            name: 'Zerion',
-            links: { native: 'zerion://', universal: 'https://wallet.zerion.io' }
-          },
-          {
-            id: 'tokenary',
-            name: 'Tokenary',
-            links: { native: 'tokenary://', universal: 'https://tokenary.io' }
-          }
-        ]}
-        // Custom Linking Desktop Wallets
-        desktopWallets={[
-          {
-            id: 'ledger',
-            name: 'Ledger',
-            links: { native: 'ledgerlive://', universal: 'https://www.ledger.com' }
-          },
-          {
-            id: 'zerion',
-            name: 'Zerion',
-            links: { native: 'zerion://', universal: 'https://wallet.zerion.io' }
-          },
-          {
-            id: 'tokenary',
-            name: 'Tokenary',
-            links: { native: 'tokenary://', universal: 'https://tokenary.io' }
-          },
-          {
-            id: 'oreid',
-            name: 'OREID',
-            links: {
-              native: '',
-              universal: 'https://www.oreid.io/'
-            }
-          }
-        ]}
-        // Custom Wallet Images
-        walletImages={{
-          metaMask: '/images/wallet_metamask.webp',
-          brave: '/images/wallet_brave.webp',
-          ledger: '/images/wallet_ledger.webp',
-          coinbaseWallet: '/images/wallet_coinbase.webp',
-          zerion: '/images/wallet_zerion.webp',
-          trust: '/images/wallet_trust.webp',
-          rainbow: '/images/wallet_rainbow.webp',
-          oreid: '/images/wallet_oreid.svg'
-        }}
-        // Custom Chain Images
-        chainImages={{
-          137: '/images/chain_polygon.webp',
-          10: '/images/chain_optimism.webp',
-          42161: '/images/chain_arbitrum.webp'
-        }}
-      />
     
+        {/* import the Web3 Properties */}
 
+        <Web3Networks />
        </section>
     )
 }
