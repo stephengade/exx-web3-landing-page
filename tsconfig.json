@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "web3Module/ConnectHandler.jsx"  ],
   "exclude": [
     "node_modules"
   ]

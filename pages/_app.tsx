@@ -27,7 +27,7 @@ const chains = [arbitrum, mainnet, polygon, optimism, avalanche, bsc, sepolia, l
 
 // Wagmi client
 const { provider } = configureChains(chains, [
-walletConnectProvider({ projectId: ProjectId }),
+walletConnectProvider({ projectId: ProjectId as any}),
 ]);
 const wagmiClient = createClient({
 autoConnect: true,

@@ -10,10 +10,7 @@ import {SelectMenu} from '../Modules/SelectUI'
 import {Hamburger} from "./Hamburger"
 
 // web3
-
-import { useWeb3Modal } from '@web3modal/react'
-import { useAccount } from 'wagmi'
-import { Web3Networks } from '../../web3Module/Web3Module'
+import { ConnectProvider } from '../../web3Module/ConnectHandler'
 
 
 
@@ -52,13 +49,14 @@ export const Languages = [
 
 const NavBar = () => {
 
-  const { isConnected } = useAccount()
-  const { open } = useWeb3Modal()
 
 
     const [openNav, setOpen] = useState(false);
 
     const handleMenuNav = () => setOpen(!openNav);
+
+
+    const {ConnectUser} = ConnectProvider();
     
     return (
         <section className={openNav ? "bg-transparent fixed w-full z-[200] py-6" : "bg-white fixed w-full z-[200] py-6"}>
@@ -100,9 +98,9 @@ const NavBar = () => {
                  
 
                   
-                    {!isConnected ? <ButtonUI  onClick={() => open()} variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4"> 
+                   <ButtonUI  onClick={ConnectUser} variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4"> 
                    Connect Wallet ↗
-                 </ButtonUI> : "Connecting..."}
+                 </ButtonUI>
 
                  
                   
@@ -143,9 +141,9 @@ const NavBar = () => {
         
                 
                           
-                            {!isConnected &&  <ButtonUI  onClick={() => open()} variant="outlined" ClassName="text-[14px] font-[700] bg-white text-exxBlue rounded-[10px] py-4 mx-[100px]"> 
+                           <ButtonUI  onClick={ConnectUser} variant="outlined" ClassName="text-[14px] font-[700] bg-white text-exxBlue rounded-[10px] py-4 mx-[100px]"> 
                            Connect Wallet ↗
-                         </ButtonUI>}
+                         </ButtonUI>
                           
         
                                 </div>
@@ -160,10 +158,7 @@ const NavBar = () => {
             
        </nav>
 
-    
-        {/* import the Web3 Properties */}
 
-        <Web3Networks />
        </section>
     )
 }
