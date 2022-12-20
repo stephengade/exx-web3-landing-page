@@ -20,14 +20,14 @@ import { configureChains, createClient, WagmiConfig } from "wagmi";
 
 import { arbitrum, mainnet, polygon, optimism, avalanche, bsc, sepolia, localhost} from "wagmi/chains";
 
-export const ProjectId = process.env.PROJECTID;
+export const ProjectId = process?.env?.PROJECTID;
 
 
 const chains = [arbitrum, mainnet, polygon, optimism, avalanche, bsc, sepolia, localhost];
 
 // Wagmi client
 const { provider } = configureChains(chains, [
-walletConnectProvider({ projectId: ProjectId as any}),
+walletConnectProvider({ projectId: ProjectId as any }),
 ]);
 const wagmiClient = createClient({
 autoConnect: true,
