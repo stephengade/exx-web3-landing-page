@@ -14,7 +14,7 @@ console.log(ConnectedAccount)
     <NavBar />
        <section className="pt-[120px] md:pt-[150px] px-12 -z-[50] bg-white">
      <h2 className="font-gros text-sm md:text-2xl text-exxDark">Welcome!</h2>
-     <p className="text-base font-sans">Your wallet address is {  ConnectedAccount }</p>
+     <p className="text-base font-sans">Your wallet address is</p>
     </section>
     </>
   )
