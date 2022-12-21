@@ -23,7 +23,7 @@ export const ConnectProvider = () => {
   useEffect(() => {
     setProvider(new ethers.providers.Web3Provider(window.ethereum));
     setEthApi(window.ethereum);
-  }, [])
+  }, [ethers, window])
 
 
 const ConnectUser =  () => {
