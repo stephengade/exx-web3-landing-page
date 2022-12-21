@@ -1,68 +1,69 @@
-import React, {useEffect, useState} from 'react';
-// import router from 'next/router'
+import {useEffect, useState} from 'react';
 
-// import { ethers } from "ethers"
-
+import { ethers } from "ethers"
 
 
-// // const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 
-export const Sample = () => {
-  return <p>Working</p>
+
+export const ConnectProvider = () => {
+
+  
+
+  const [WalletProvider, setProvider] = useState()
+  const [isWindow, setWindow] = useState()
+
+
+  useEffect(() => {
+    setProvider(new ethers.providers.Web3Provider(window.ethereum, "any"))
+    setWindow(window.ethereum)
+  }, [])
+
+  // // account details
+
+  const [walletAddress, setAddress] = useState("")
+  const [walletBalance, setBalance] = useState("")
+  const [isConnected, setConnected] = useState(false)
+
+
+  // console.log(provider)
+
+
+const ConnectUser =  () => {
+  if(isWindow) {
+    WalletProvider.send("eth_requestAccounts", []).then(async ()=> {
+    await ConnectedAccount(WalletProvider.getSigner());
+   })
+} else {
+  console.log("Install Metamask 😎")
 }
 
-// export const ConnectProvider = () => {
-//   const [WalletProvider, setProvider] = useState()
-//   const [ethApi, setEthApi] = useState()
-
-//   // account details
-
-//   const [walletAddress, setAddress] = useState("")
-//   const [walletBalance, setBalance] = useState("")
-
-
-//   useEffect(() => {
-//     setProvider(new ethers.providers.Web3Provider(window.ethereum, "any"));
-//     setEthApi(window.ethereum);
-//   }, [ethers])
-
-
-// const ConnectUser =  () => {
-//   if(ethApi) {
-//     WalletProvider.send("eth_requestAccounts", []).then(async ()=> {
-//     await ConnectedAccount(WalletProvider.getSigner());
-//     console.log("connected")
-//    })
-// } else {
-//   console.log("Install Metamask 😎")
-// }
-//   }
+return ConnectUser;
+  }
 
 
 
-//    // handle Account details
+   // handle Account details
 
-//    const ConnectedAccount = async (User) => {
-//     const Address = await User.getAddress();
-//     setAddress(Address);
-//     await GetBalance(Address)
-//    }
+   const ConnectedAccount = async (User) => {
+    const Address = await User.getAddress();
+    await setAddress(Address);
+    await User.signMessage("Welcome to Exx Network (This is a test)");
+    await GetBalance(Address)
+   }
 
    
 
 
-// // get balance
-// const GetBalance = async (address) => {
-//   const balance = await WalletProvider.getBalance(address, "latest")
-//   setBalance(ethers.utils.formatEther(balance))
+// get balance
+const GetBalance = async (address) => {
+  const balance = await WalletProvider.getBalance(address, "latest")
+  setBalance(ethers.utils.formatEther(balance))
 
-// }
+}
 
-//   return {
-//     ConnectUser  
-//   }
+  return {ConnectUser, walletAddress, walletBalance}
 
 
-// }
+}
 
