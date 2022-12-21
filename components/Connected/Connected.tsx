@@ -18,7 +18,7 @@ const TextItem =({label, value}: Itext) => {
 }
 
 const Connected = () => {
-    const {ConnectUser} = ConnectProvider();
+    const { ConnectUser } = ConnectProvider();
    
 
     return (

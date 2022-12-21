@@ -6,8 +6,8 @@ import WhiteLogo from "../../public/assets/whiteLogo.svg"
 import Globe from "../../public/assets/lang.svg"
 import WhiteGlobe from "../../public/assets/lang-white.svg"
 import ButtonUI from '../Modules/ButtonUI'
-import {SelectMenu} from '../Modules/SelectUI'
-import {Hamburger} from "./Hamburger"
+import { SelectMenu } from '../Modules/SelectUI'
+import { Hamburger } from "./Hamburger"
 
 // web3
 import { ConnectProvider } from '../../web3Module/ConnectHandler'
@@ -15,35 +15,35 @@ import { ConnectProvider } from '../../web3Module/ConnectHandler'
 
 
 export const NavLinks = [
-    {
-        id:0,
-        link: "",
-        text: "About"
-    },
+  {
+    id: 0,
+    link: "",
+    text: "About"
+  },
 
-    {
-        id:1,
-        link: "",
-        text: "Developer"
-    },
+  {
+    id: 1,
+    link: "",
+    text: "Developer"
+  },
 
-    {
-        id:2,
-        link: "",
-        text: "Blogs"
-    }
+  {
+    id: 2,
+    link: "",
+    text: "Blogs"
+  }
 ]
 
 export const Languages = [
-    {
-        text: "EN",
-        value: "EN"
-    },
+  {
+    text: "EN",
+    value: "EN"
+  },
 
-    {
-        text: "FR",
-        value: "FR"
-    }
+  {
+    text: "FR",
+    value: "FR"
+  }
 ]
 
 
@@ -51,116 +51,118 @@ const NavBar = () => {
 
 
 
-    const [openNav, setOpen] = useState(false);
+  const [openNav, setOpen] = useState(false);
 
-    const handleMenuNav = () => setOpen(!openNav);
-
-
-    const {ConnectUser} = ConnectProvider();
-    
-    return (
-        <section className={openNav ? "bg-transparent fixed w-full z-[200] py-6" : "bg-white fixed w-full z-[200] py-6"}>
-        <nav className="w-full flex flex-row justify-between items-center px-6 md:px-12">
-
-            <div className="brand___logo z-50">
-                 <Image src={openNav ? WhiteLogo : Logo} alt="Exx Network Logo" />
-                </div>
+  const handleMenuNav = () => setOpen(!openNav);
 
 
-                <div className="nav__links hidden md:flex flex-row items-center gap-10">
+  const { ConnectUser } = ConnectProvider();
 
-                   
-                <ul className="nav_list flex gap-5">
-                   {NavLinks.map((n: any) => {
-                     return (
-                     <li key={n.id} className="text-exxDark text-[14px] font-sans font-[500]">
-                      <Link href={n.link}>
-                        {n.text}
-                        </Link>
+  return (
+    <section className={openNav ? "bg-transparent fixed w-full z-[200] py-6" : "bg-white fixed w-full z-[200] py-6"}>
+      <nav className="w-full flex flex-row justify-between items-center px-6 md:px-12">
 
-                      </li>
-                   )})}
-                    </ul>
+        <div className="brand___logo z-50">
+          <Image src={openNav ? WhiteLogo : Logo} alt="Exx Network Logo" />
+        </div>
 
 
-
-                      {/* language and connect */}
-                    <div className="buttons__nav flex flex-row items-center gap-5">
-                            
-                   
-
-                    <div className="flex flex-row items-center gap-2 mr-5">
-                      <Image src={Globe} alt="choose a language" /> 
-                      <SelectMenu Data={Languages}  defaultValue={"EN"} inputColor="black" inputWidth="60px" name="selected_language"/>
-                    </div>
-                  
-
-                 
-
-                  
-                   <ButtonUI  onClick={ConnectUser} variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4"> 
-                   Connect Wallet ↗
-                 </ButtonUI>
-
-                 
-                  
-
-                        </div>
-
-                    </div>
+        <div className="nav__links hidden md:flex flex-row items-center gap-10">
 
 
-                    {/* mobile hamburger */}
+          <ul className="nav_list flex gap-5">
+            {NavLinks.map((n: any) => {
+              return (
+                <li key={n.id} className="text-exxDark text-[14px] font-sans font-[500]">
+                  <Link href={n.link}>
+                    {n.text}
+                  </Link>
 
-                    <Hamburger openMenu={openNav} onClick={handleMenuNav} />
-
-                     <div className={openNav ? `bg-exxBlue fixed z-[20] left-0 top-0 h-[100vh] w-[100vw]`: "hidden"}>
-                        <div className="mt-[150px]">
-                     <ul className="nav_list flex flex-col justify-center items-center gap-5">
-                   {NavLinks.map((n: any) => {
-                     return (
-                     <li key={n.id} className="text-white text-base font-sans font-[500]">
-                      <Link href={n.link}>
-                        {n.text}
-                        </Link>
-
-                      </li>
-                   )})}
-                    </ul>
-
-
-                    <div className="buttons__nav flex flex-col-reverse gap-10 mt-[100px]">
-                            
-                   
-
-                            <div className="flex flex-row justify-center items-center gap-2 mx-[50px]">
-                              <Image src={WhiteGlobe} alt="choose a language" /> 
-                              <SelectMenu Data={Languages}  defaultValue={"EN"} inputColor="white" name="selected_language" />
-                            </div>
-                          
-        
-                
-                          
-                           <ButtonUI  onClick={ConnectUser} variant="outlined" ClassName="text-[14px] font-[700] bg-white text-exxBlue rounded-[10px] py-4 mx-[100px]"> 
-                           Connect Wallet ↗
-                         </ButtonUI>
-                          
-        
-                                </div>
+                </li>
+              )
+            })}
+          </ul>
 
 
 
-                    </div>
-
-                    </div>
-
-
-            
-       </nav>
+          {/* language and connect */}
+          <div className="buttons__nav flex flex-row items-center gap-5">
 
 
-       </section>
-    )
+
+            <div className="flex flex-row items-center gap-2 mr-5">
+              <Image src={Globe} alt="choose a language" />
+              <SelectMenu Data={Languages} defaultValue={"EN"} inputColor="black" inputWidth="60px" name="selected_language" />
+            </div>
+
+
+
+
+
+            <ButtonUI onClick={ConnectUser} variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4">
+              Connect Wallet ↗
+            </ButtonUI>
+
+
+
+
+          </div>
+
+        </div>
+
+
+        {/* mobile hamburger */}
+
+        <Hamburger openMenu={openNav} onClick={handleMenuNav} />
+
+        <div className={openNav ? `bg-exxBlue fixed z-[20] left-0 top-0 h-[100vh] w-[100vw]` : "hidden"}>
+          <div className="mt-[150px]">
+            <ul className="nav_list flex flex-col justify-center items-center gap-5">
+              {NavLinks.map((n: any) => {
+                return (
+                  <li key={n.id} className="text-white text-base font-sans font-[500]">
+                    <Link href={n.link}>
+                      {n.text}
+                    </Link>
+
+                  </li>
+                )
+              })}
+            </ul>
+
+
+            <div className="buttons__nav flex flex-col-reverse gap-10 mt-[100px]">
+
+
+
+              <div className="flex flex-row justify-center items-center gap-2 mx-[50px]">
+                <Image src={WhiteGlobe} alt="choose a language" />
+                <SelectMenu Data={Languages} defaultValue={"EN"} inputColor="white" name="selected_language" />
+              </div>
+
+
+
+
+              <ButtonUI onClick={ConnectUser} variant="contained" ClassName="text-[14px] font-[700] bg-white text-exxBlue rounded-[10px] py-4 mx-[100px]">
+                Connect Wallet ↗
+              </ButtonUI>
+
+
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+
+
+      </nav>
+
+
+    </section>
+  )
 }
 
 export default NavBar
