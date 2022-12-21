@@ -60,7 +60,7 @@ const GetBalance = async (address) => {
 }
 
   return [
-    ConnectUser,
+    ConnectUser(),
     walletAddress, 
     walletBalance
  ] 
