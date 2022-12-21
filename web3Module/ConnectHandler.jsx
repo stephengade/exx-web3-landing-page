@@ -59,13 +59,6 @@ const GetBalance = async (address) => {
 
 }
 
-
-
-console.log("Balance:", walletBalance)
-console.log("myAddressOutside:", walletAddress);
-
-
-
   return {
     ConnectUser,
     ConnectedAccount,
