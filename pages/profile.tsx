@@ -6,9 +6,7 @@ const Profile = () => {
   
   const address = "0x...connect account"
 
-  const { ConnectedAccount } = ConnectProvider()
 
-console.log(ConnectedAccount)
   return (
     <>
     <NavBar />
