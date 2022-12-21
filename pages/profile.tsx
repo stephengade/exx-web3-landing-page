@@ -1,5 +1,4 @@
 import React from 'react'
-import { ConnectProvider } from '../web3Module/ConnectHandler'
 import NavBar from '../components/Navigation/NavBar'
 
 const Profile = () => {
