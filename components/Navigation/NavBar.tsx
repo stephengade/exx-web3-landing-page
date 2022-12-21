@@ -9,9 +9,6 @@ import ButtonUI from '../Modules/ButtonUI'
 import { SelectMenu } from '../Modules/SelectUI'
 import { Hamburger } from "./Hamburger"
 
-// web3
-import { ConnectProvider } from '../../web3Module/ConnectHandler'
-
 
 
 export const NavLinks = [
@@ -55,7 +52,6 @@ const NavBar = () => {
 
   const handleMenuNav = () => setOpen(!openNav);
 
-  const { ConnectUser } = ConnectProvider();
 
   return (
     <section className={openNav ? "bg-transparent fixed w-full z-[200] py-6" : "bg-white fixed w-full z-[200] py-6"}>
@@ -98,7 +94,7 @@ const NavBar = () => {
 
 
 
-            <ButtonUI onClick={() => ConnectUser()} variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4">
+            <ButtonUI variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4">
               Connect Wallet ↗
             </ButtonUI>
 
@@ -142,7 +138,7 @@ const NavBar = () => {
 
 
 
-              <ButtonUI onClick={() => ConnectUser()} variant="contained" ClassName="text-[14px] font-[700] bg-white text-exxBlue rounded-[10px] py-4 mx-[100px]">
+              <ButtonUI variant="contained" ClassName="text-[14px] font-[700] bg-white text-exxBlue rounded-[10px] py-4 mx-[100px]">
                 Connect Wallet ↗
               </ButtonUI>
 

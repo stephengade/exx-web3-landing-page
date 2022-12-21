@@ -1,6 +1,6 @@
 import React from 'react'
 import ButtonUI from '../Modules/ButtonUI'
-import { ConnectProvider } from '../../web3Module/ConnectHandler'
+
 
 
 
@@ -18,7 +18,7 @@ const TextItem =({label, value}: Itext) => {
 }
 
 const Connected = () => {
-    const { ConnectUser } = ConnectProvider();
+ 
    
 
     return (
@@ -41,7 +41,7 @@ const Connected = () => {
 
 
         <div className="connect__buttons md:mt-6 w-full flex flex-col md:flex-row gap-3 md:gap-7">
-                <ButtonUI onClick={() => ConnectUser} variant="contained" ClassName="bg-exxBlue  text-[14px] font-[500] text-white rounded-[10px] py-2 "> 
+                <ButtonUI variant="contained" ClassName="bg-exxBlue  text-[14px] font-[500] text-white rounded-[10px] py-2 "> 
                      Add to Metatask ↗
                  </ButtonUI> 
 
