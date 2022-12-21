@@ -55,7 +55,6 @@ const NavBar = () => {
 
   const handleMenuNav = () => setOpen(!openNav);
 
-
   const { ConnectUser } = ConnectProvider();
 
   return (
@@ -99,7 +98,7 @@ const NavBar = () => {
 
 
 
-            <ButtonUI onClick={ConnectUser} variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4">
+            <ButtonUI onClick={() => ConnectUser()} variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4">
               Connect Wallet ↗
             </ButtonUI>
 
@@ -143,7 +142,7 @@ const NavBar = () => {
 
 
 
-              <ButtonUI onClick={ConnectUser} variant="contained" ClassName="text-[14px] font-[700] bg-white text-exxBlue rounded-[10px] py-4 mx-[100px]">
+              <ButtonUI onClick={() => ConnectUser()} variant="contained" ClassName="text-[14px] font-[700] bg-white text-exxBlue rounded-[10px] py-4 mx-[100px]">
                 Connect Wallet ↗
               </ButtonUI>
 

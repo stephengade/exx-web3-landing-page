@@ -23,7 +23,7 @@ export const ConnectProvider = () => {
   useEffect(() => {
     setProvider(new ethers.providers.Web3Provider(window.ethereum));
     setEthApi(window.ethereum);
-  }, [])
+  }, [ethers])
 
 
 const ConnectUser =  () => {
@@ -31,10 +31,10 @@ const ConnectUser =  () => {
   if(ethApi) {
     WalletProvider.send("eth_requestAccounts", []).then(async ()=> {
     await ConnectedAccount(WalletProvider.getSigner());
-     await  router.push("/profile")
+    console.log("connected")
    })
 } else {
-  alert("Install Metamask 😎")
+  console.log("Install Metamask 😎")
 }
   }
 
@@ -46,7 +46,6 @@ const ConnectUser =  () => {
     const Address = await User.getAddress();
     setAddress(Address);
     await GetBalance(Address)
-     return Address;
    }
 
    
@@ -59,18 +58,8 @@ const GetBalance = async (address) => {
 
 }
 
-
-
-// console.log("Balance:", walletBalance)
-// console.log("myAddressOutside:", walletAddress);
-
-
-
   return {
-    ConnectUser,
-
-    walletAddress,
-    walletBalance
+    ConnectUser  
   }
 
 
