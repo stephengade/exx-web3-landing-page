@@ -56,7 +56,7 @@ const NavBar = () => {
   const handleMenuNav = () => setOpen(!openNav);
 
 
-  const { ConnectUser } = ConnectProvider();
+  const ConnectUser = ConnectProvider();
 
   return (
     <section className={openNav ? "bg-transparent fixed w-full z-[200] py-6" : "bg-white fixed w-full z-[200] py-6"}>
