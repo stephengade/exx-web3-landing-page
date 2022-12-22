@@ -1,6 +1,7 @@
 import React from 'react'
 import { useWalletConnector } from '../hooks/hook'
 import ButtonUI from '../../components/Modules/ButtonUI'
+import { useWeb3Context } from '../context/context'
 
 
 interface ConnectProps {
@@ -10,12 +11,9 @@ interface ConnectProps {
 }
 const ConnectButton = ({ connect, CTA }: ConnectProps) => {
   return connect ? (
-    <ButtonUI onClick={connect} variant="contained" ClassName="bg-exxBlue  text-[14px] font-[500] text-white rounded-[10px] py-2 ">{CTA}</ButtonUI>
-  ):
-
-  ( <ButtonUI variant="contained" ClassName="bg-exxBlue  text-[14px] font-[500] text-white rounded-[10px] py-2 ">connecting...</ButtonUI>)
-    
-   
+    <ButtonUI onClick={connect} variant="contained" ClassName="bg-exxBlue text-[14px] font-[500] text-white rounded-[10px] py-2">{CTA}</ButtonUI> )
+    :
+  (<ButtonUI variant="outlined" ClassName="bg-white text-[14px] font-[500] hover:text-white text-exxBlue rounded-[10px] py-2">Connecting...</ButtonUI>)  
 }
 
 interface DisconnectProps {
@@ -31,7 +29,7 @@ return disconnect ?
 }
 
 export function ConnectWalletButton({CTA} : any) {
-  const { web3Provider, connect, disconnect } = useWalletConnector();
+  const { web3Provider, connect, disconnect } = useWeb3Context();
 
   if (web3Provider) {
     <DisconnectButton disconnect={disconnect}  />

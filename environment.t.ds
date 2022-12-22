@@ -1,9 +1,10 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      PROJECTID: string | undefined | any;
+      PROJECTID?: string | undefined | any;
       NODE_ENV: 'development' | 'production';
       PORT?: string;
+      NEXT_INFURA_ID?: string | undefined | any;  
     }
   }
 }

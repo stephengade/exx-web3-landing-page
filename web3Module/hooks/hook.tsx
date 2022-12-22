@@ -5,14 +5,19 @@ import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 
 
+  const Use__ID = process.env.NEXT_INFURA_ID
 
+const NetworkOptions = new WalletConnectProvider({
+  rpc: {
+    137: `wss://mainnet.infura.io/ws/v3/${Use__ID}`,
+  },
+  infuraId: Use__ID,
+});
 
 const providerOptions = {
     walletconnect: {
       package: WalletConnectProvider, // required
-      options: {
-        infuraId: process.env.NEXT_INFURA_ID,
-      },
+      options: NetworkOptions
     },
   }
   
