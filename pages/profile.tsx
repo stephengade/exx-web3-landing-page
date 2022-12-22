@@ -6,7 +6,8 @@ import { useWalletConnector } from '../web3Module/hooks/hook'
 const Profile = () => {
 
   const {  address, network } = useWalletConnector()
-  
+
+
   return (
     <>
     <NavBar />

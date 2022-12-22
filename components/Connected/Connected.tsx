@@ -46,6 +46,7 @@ const Connected = () => {
                 {/* <ButtonUI onClick={connect} variant="contained" ClassName="bg-exxBlue  text-[14px] font-[500] text-white rounded-[10px] py-2 "> 
                    {"Add to Metatask ↗"}
                  </ButtonUI>  */}
+                 
                  <ConnectWalletButton CTA="Add to Metamask ↗" />
 
                  <ButtonUI variant="outlined" ClassName=" text-exxBlue text-[14px] font-[500] rounded-[10px] py-2"> 
