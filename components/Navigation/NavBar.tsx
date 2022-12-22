@@ -134,8 +134,9 @@ const NavBar = () => {
 
 
 
-             
+             <div className="flex flex-row justify-center">
               <ConnectWalletButton CTA="Connect Wallet ↗" />
+              </div>
 
 
             </div>
