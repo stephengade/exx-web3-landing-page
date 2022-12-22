@@ -5,7 +5,7 @@ import ButtonUI from '../../components/Modules/ButtonUI'
 
 interface ConnectProps {
   connect: (() => Promise<void>) | null
-  CTA?: string
+  CTA?: string | any
   
 }
 const ConnectButton = ({ connect, CTA }: ConnectProps) => {
@@ -30,7 +30,7 @@ return disconnect ?
  
 }
 
-export function ConnectWalletButton({CTA}) {
+export function ConnectWalletButton({CTA} : any) {
   const { web3Provider, connect, disconnect } = useWalletConnector();
 
   if (web3Provider) {
