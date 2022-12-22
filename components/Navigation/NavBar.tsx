@@ -8,6 +8,7 @@ import WhiteGlobe from "../../public/assets/lang-white.svg"
 import ButtonUI from '../Modules/ButtonUI'
 import { SelectMenu } from '../Modules/SelectUI'
 import { Hamburger } from "./Hamburger"
+import { ConnectWalletButton } from '../../web3Module/Button/WalletButton'
 
 
 
@@ -45,8 +46,6 @@ export const Languages = [
 
 
 const NavBar = () => {
-
-
 
   const [openNav, setOpen] = useState(false);
 
@@ -94,10 +93,7 @@ const NavBar = () => {
 
 
 
-            <ButtonUI variant="contained" ClassName="bg-exxBlue w-full text-[14px] font-[700] text-white rounded-[10px] py-4">
-              Connect Wallet ↗
-            </ButtonUI>
-
+            <ConnectWalletButton CTA="Connect Wallet ↗" />
 
 
 
@@ -138,9 +134,8 @@ const NavBar = () => {
 
 
 
-              <ButtonUI variant="contained" ClassName="text-[14px] font-[700] bg-white text-exxBlue rounded-[10px] py-4 mx-[100px]">
-                Connect Wallet ↗
-              </ButtonUI>
+             
+              <ConnectWalletButton CTA="Connect Wallet ↗" />
 
 
             </div>

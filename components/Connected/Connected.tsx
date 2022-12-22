@@ -1,5 +1,7 @@
 import React from 'react'
 import ButtonUI from '../Modules/ButtonUI'
+import { ConnectWalletButton } from '../../web3Module/Button/WalletButton'
+
 
 
 
@@ -18,7 +20,7 @@ const TextItem =({label, value}: Itext) => {
 }
 
 const Connected = () => {
- 
+    
    
 
     return (
@@ -41,9 +43,11 @@ const Connected = () => {
 
 
         <div className="connect__buttons md:mt-6 w-full flex flex-col md:flex-row gap-3 md:gap-7">
-                <ButtonUI variant="contained" ClassName="bg-exxBlue  text-[14px] font-[500] text-white rounded-[10px] py-2 "> 
-                     Add to Metatask ↗
-                 </ButtonUI> 
+                {/* <ButtonUI onClick={connect} variant="contained" ClassName="bg-exxBlue  text-[14px] font-[500] text-white rounded-[10px] py-2 "> 
+                   {"Add to Metatask ↗"}
+                 </ButtonUI>  */}
+                 
+                 <ConnectWalletButton CTA="Add to Metamask ↗" />
 
                  <ButtonUI variant="outlined" ClassName=" text-exxBlue text-[14px] font-[500] rounded-[10px] py-2"> 
                    Learn More ↗
