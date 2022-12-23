@@ -1,5 +1,4 @@
 import React from 'react'
-import { useWalletConnector } from '../hooks/hook'
 import ButtonUI from '../../components/Modules/ButtonUI'
 import { useWeb3Context } from '../context/context'
 
@@ -31,11 +30,12 @@ return disconnect ?
 export function ConnectWalletButton({CTA} : any) {
   const { web3Provider, connect, disconnect } = useWeb3Context();
 
-  if (web3Provider) {
-    <DisconnectButton disconnect={disconnect}  />
-  } 
-
-  return <ConnectButton connect={connect} CTA={CTA} />
+  return web3Provider ? (
+  <DisconnectButton disconnect={disconnect}  /> 
+  ) : 
+  (
+  <ConnectButton connect={connect} CTA={CTA} />
+  )
   
 }
 
