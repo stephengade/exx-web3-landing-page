@@ -15,19 +15,19 @@ import { ConnectWalletButton } from '../../web3Module/Button/WalletButton'
 export const NavLinks = [
   {
     id: 0,
-    link: "",
+    link: "/",
     text: "About"
   },
 
   {
     id: 1,
-    link: "",
+    link: "/",
     text: "Developer"
   },
 
   {
     id: 2,
-    link: "",
+    link: "/",
     text: "Blogs"
   }
 ]

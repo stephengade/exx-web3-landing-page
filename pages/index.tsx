@@ -18,6 +18,7 @@ const IndexPage = () => {
   return (
     <>
   <NavBar />
+   
    <Hero />
    <Resources />
    <Features />

@@ -8,6 +8,7 @@ export type Web3State = {
     provider: any 
     web3Provider: ethers.providers.Web3Provider | null | undefined
     address: string | null | undefined
+    balance:  any
     network: ethers.providers.Network | null | undefined
     connect: (() => Promise<void>) | null
     disconnect: (() => Promise<void>) | null
@@ -18,6 +19,7 @@ export type Web3State = {
     provider: null,
     web3Provider: null,
     address: null,
+    balance: null,
     network: null,
     connect: null,
     disconnect: null,
@@ -32,10 +34,15 @@ export type Web3State = {
       web3Provider?: Web3State['web3Provider']
       address?: Web3State['address']
       network?: Web3State['network']
+      balance?: Web3State['balance']
     }
   | {
       type: 'SET_ADDRESS'
       address?: Web3State['address']
+    }
+    | {
+      type: 'SET_BALANCE'
+      balance?: Web3State['balance']
     }
   | {
       type: 'SET_NETWORK'
@@ -60,12 +67,18 @@ export type Web3State = {
               web3Provider: action.web3Provider,
               address: action.address,
               network: action.network,
+              balance: action.balance
             }
           case 'SET_ADDRESS':
             return {
               ...state,
               address: action.address,
             }
+            case 'SET_BALANCE':
+              return {
+                ...state,
+                balance: action.balance,
+              }
           case 'SET_NETWORK':
             return {
               ...state,
