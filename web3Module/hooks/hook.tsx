@@ -1,10 +1,9 @@
-import { useEffect, useReducer, useCallback } from 'react'
+import { useEffect, useReducer, useCallback, useState } from 'react'
 import { ethers } from 'ethers'
 import { Web3State, web3Reducer, web3InitialState, Web3Action } from './Web3Types'
 import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import { useRouter } from 'next/router'
-
 
 
 const providerOptions = {
@@ -26,6 +25,7 @@ if (typeof window !== 'undefined') {
 }
 
 
+
 // Web3Modal code goes here
 
 type Web3Client = Web3State & {
@@ -34,10 +34,9 @@ type Web3Client = Web3State & {
 }
 
 export const useWalletConnector = () => {
+
   const [state, dispatch] = useReducer(web3Reducer, web3InitialState)
   const { provider, web3Provider, address, network, balance } = state;
- 
-  const router = useRouter();
 
   // connect 
 
@@ -46,20 +45,19 @@ export const useWalletConnector = () => {
       try {
         const provider = await web3Modal.connect()
         const web3Provider = new ethers.providers.Web3Provider(provider)
-        const signer = web3Provider.getSigner()
-        const address = await signer.getAddress()
-        const network = await web3Provider.getNetwork()
-        const getBalance = await signer.getBalance(address)
-        const balance = await ethers.utils.formatEther(getBalance)
-        router.push("/profile")
- 
+        
+        const signer = web3Provider.getSigner();
+        const address = await signer.getAddress();
+        const network = await web3Provider.getNetwork();
+      
+
         dispatch({
           type: 'SET_PROVIDER',
           provider,
           web3Provider,
           address,
           network,
-          balance
+         
         } as Web3Action)
       } catch (e) {
         console.log('connect error', e)
@@ -107,6 +105,9 @@ export const useWalletConnector = () => {
           address: accounts[0],
         } as Web3Action)
       }
+
+    
+
 
       // https://docs.ethers.io/v5/concepts/best-practices/#best-practices--network-changes
       const handleChainChanged = (_hexChainId: string) => {
