@@ -16,12 +16,12 @@ const Profile = () => {
     </section>
 
 
-    <div className="bg-exxDark py-[29px] px-[27px] rounded-[20px] mt-12 mx-12 w-2/2 md:w-1/3 inline-block">
+    <div className="bg-exxDark py-[29px] px-[27px] rounded-[20px] mt-12 mx-12 w-2/2 md:w-2/3 inline-block">
     
      {address ?  
      (<p className="text-2xl text-white font-sans">You're connected to: <span className="text-exxBlue">{address }</span></p>)
      :     
-    (<p className="text-2xl text-white font-sans">You're not connected - { <ConnectWalletButton CTA="Connect Wallet ↗" /> } </p>)
+    (<p className="text-2xl text-white font-sans">You're not connected  { <ConnectWalletButton CTA="Connect Wallet ↗" /> } </p>)
       }
          
      {balance ?  <p className="text-base text-white md:text-2xl mt-5 font-sans">Balance: {balance}</p> : "" }
