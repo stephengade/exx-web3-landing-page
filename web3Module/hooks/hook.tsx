@@ -3,7 +3,7 @@ import { ethers } from 'ethers'
 import { Web3State, web3Reducer, web3InitialState, Web3Action } from './Web3Types'
 import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
-import { useRouter } from 'next/router'
+
 
 
 const providerOptions = {
